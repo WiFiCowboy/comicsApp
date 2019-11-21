@@ -1,41 +1,22 @@
-let states = '';
+let startDate = '';
+let endDate = '';
 // new
-const apiKey = 'd6cb2c40a70bfd62dd967ea72604c3a7';
-const searchURL = 'https://gateway.marvel.com/v1/public/comics?startYear=';
-const limit = 'limit='
-// end new
-const queryParam = '?stateCode=';
-let maxResults = '';
+// const apiKey = 'd6cb2c40a70bfd62dd967ea72604c3a7';
+const startURL = 'https://gateway.marvel.com/v1/public/comics?dateRange=';
 
-// The user must be able to search for parks in one or more states.
-function getStates(){
-    $('.userRequest').submit(event => {
-        event.preventDefault();
-        states = $('#states').val().toLowerCase();
-        console.log(states);
-        grabMaxResults();
-        getUserParks();
-        clearTextInput()
-    });
-};
+const endUrl = '&limit=4&ts=2019-11-19&apikey=d6cb2c40a70bfd62dd967ea72604c3a7&hash=2365d68ab95ef4c8e36e285198af89d5'
 
-function buildUrl(){
-    const fetchUrl = searchURL + queryParam + states + '&api_key=' + apiKey + '&limit=' + maxResults;
+
+
+function buildUrl() {
+    const fetchUrl = startURL + startDate + ',' + endDate + endUrl;
     console.log(fetchUrl)
     return fetchUrl;
 }
 
-function clearTextInput() {
-    $('#states').val('');
-}
-
-// The user must be able to set the max number of results, with a default of 10.
-function grabMaxResults() {
-    maxResults = $('#returnResults').val();
-}
 
 // The search must trigger a call to NPS's API.
-function getUserParks(){
+function getComics(){
     fetch(buildUrl())
     .then(response => {
         console.log(response);
@@ -47,36 +28,38 @@ function getUserParks(){
         }
     })
     .then(responseJson => displayResults(responseJson))
-    .catch(error => errorHandle());
+    .catch(error => console.log('error thrown', error));
 };
 
-// The parks in the given state must be displayed on the page. Include at least:
-// Full name
-// Description
-// Website URL
-function displayResults(responseJson){
-    $('.displayParkInfo').empty();
-    if(responseJson.data.length === 0){
-        errorHandle();
+function displayResults(responseJson) {
+    let item = responseJson.data.results;
+    console.log('these are results', item);
+    for(let i = 0; i < item.length; i++){
+        $('.js-display').append(`<h2>${item[i].title}</h2>
+            <img src='${item[i].images[0].path}.${item[i].images[0].extension}'></img>
+            <p>${item[i].description}</p>`);
+
     }
-    for(let i = 0; i < responseJson.data.length; i++){
-        $('.displayParkInfo').append(
-            `<h2>Park Name: ${responseJson.data[i].fullName} State:${responseJson.data[i].states}</h2>
-            <p>${responseJson.data[i].description}</p>
-            <a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a>`)
-    }
-    $('.displayParkInfo').removeClass('hidden');
-};
+}
 
-function errorHandle() {
-    $('.displayParkInfo').append(`<h3>States not found!</h3>`);
-    $('.displayParkInfo').removeClass('hidden');
-};
+function getDates() {
+    $('form').submit(function(event) {
+        clearDisplayedComics();
+        startDate = $('#startDate').val();
+        endDate = $('#endDate').val();
+        event.preventDefault();
+        getComics();
+        console.log(startDate, endDate);
+    });
+}
 
-function masterControl(){
-    console.log('Script connected');
-    getStates();
+function clearDisplayedComics(){
+    $('.js-display').empty();
+}
 
+
+function masterControl() {
+    getDates();
 };
 
 $(masterControl);
