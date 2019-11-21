@@ -9,11 +9,36 @@
   <body>
     <main>
       <h1>comics app</h1>
-      <div class="display"></div>
-      <form action="">
-        <input type="date" name="userDate" id="userDate" />
-        <input type="submit" value="Submit" />
+      <div class="display js-display"></div>
+      <form action="" class="js-form">
+        <label for="startDate">Start Date</label>
+        <input
+          type="text"
+          name="userDate"
+          id="startDate"
+          class="js-date"
+          placeholder="YYYY-MM-DD"
+        />
+        <!-- for testing remove -->
+        <br />
+
+        <label for="endDate">End Date</label>
+        <input
+          type="text"
+          name="userDate"
+          id="endDate"
+          class="js-date"
+          placeholder="YYYY-MM-DD"
+        />
+        <input type="submit" value="Submit" class="js-submit" />
       </form>
+
+      <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"
+      ></script>
+      <script src="script.js"></script>
     </main>
   </body>
 </html>
