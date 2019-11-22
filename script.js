@@ -14,7 +14,6 @@ function buildUrl() {
 };
 
 
-// The search must trigger a call to NPS's API.
 function getComics(){
     fetch(buildUrl())
     .then(response => {
@@ -27,12 +26,21 @@ function getComics(){
         }
     })
     .then(responseJson => displayResults(responseJson))
-    .catch(error => console.log('error thrown', error));
+    .catch(error => handleErrors());
+};
+
+// Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
+function handleErrors() {
+    $('.js-display').append(`<h2>Thanos Snapped your comics out of existence! Try another date range.</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan">`)
 };
 
 function displayResults(responseJson) {
     let item = responseJson.data.results;
     console.log('these are results', item);
+    if(item.length === 0) {
+        handleErrors();
+    };
     for(let i = 0; i < item.length; i++){
         $('.js-display').append(`<h2>${item[i].title}</h2>
             <img src='${item[i].images[0].path}.${item[i].images[0].extension}'></img>
