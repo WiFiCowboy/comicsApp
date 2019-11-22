@@ -4,4 +4,59 @@
     padding: 0;
   }
 
+  body{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .title-text{
+    font-size: 40px;
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  header{
+    width: 100%;
+    height: 136px;
+    background-color: black;
+    border-bottom: grey 2px solid;
+
+  }
+
+  .js-form{
+    font-size:30px;
+    text-align: center;
+    margin-bottom: 15%;
+  }
+
+  input{
+    font-size:30px;
+    margin-bottom:5px;
+  }
+  .img-wrapper{
+    text-align:center;
+    
+  }
+  .js-submit:hover{
+    
+  }
+  .background-image{
+    background-repeat: no-repeat;
+    width:800px;
+    height:500px;
+    display: block;
+    position: relative;
+
+  }
+  .background-image::after{
+  background: url('https://wallpaperplay.com/walls/full/9/2/8/330254.jpg');
+  Opacity: 0.5;
+  }
+
+  .js-display{
+    display:flex;
+    flex-direction: row;
+  }
 
