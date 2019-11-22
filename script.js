@@ -26,7 +26,7 @@ function getComics(){
         }
     })
     .then(responseJson => displayResults(responseJson))
-    .catch(error => handleErrors());
+    .catch(error => comicError());
 };
 
 // Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
@@ -34,6 +34,13 @@ function handleErrors() {
     $('.js-display').append(`<h2>Thanos Snapped your comics out of existence! Try another date range.</h2>
     <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan">`)
 };
+
+
+// Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
+function comicError() {
+    $('.js-display').append(`<h2>Doctor Doom has taken this comic!</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom">`)
+}
 
 function displayResults(responseJson) {
     let item = responseJson.data.results;
