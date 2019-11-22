@@ -14,7 +14,6 @@ function buildUrl() {
 };
 
 
-// The search must trigger a call to NPS's API.
 function getComics(){
     fetch(buildUrl())
     .then(response => {
@@ -27,17 +26,32 @@ function getComics(){
         }
     })
     .then(responseJson => displayResults(responseJson))
-    .catch(error => console.log('error thrown', error));
+    .catch(error => comicError());
 };
+
+// Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
+function handleErrors() {
+    $('.js-display').append(`<h2>Thanos Snapped your comics out of existence! Try another date range.</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan">`)
+};
+
+
+// Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
+function comicError() {
+    $('.js-display').append(`<h2>Doctor Doom has taken this comic!</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom">`)
+}
 
 function displayResults(responseJson) {
     let item = responseJson.data.results;
     console.log('these are results', item);
+    if(item.length === 0) {
+        handleErrors();
+    };
     for(let i = 0; i < item.length; i++){
         $('.js-display').append(`<h2>${item[i].title}</h2>
             <img src='${item[i].images[0].path}.${item[i].images[0].extension}'></img>
-            <p>${item[i].description}</p>`);
-
+            <p>${item[i].description != null ? item[i].description : 'This Comic is so awesome the description is classified!' }</p>`);
     };
 };
 
