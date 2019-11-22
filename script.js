@@ -44,8 +44,7 @@ function displayResults(responseJson) {
     for(let i = 0; i < item.length; i++){
         $('.js-display').append(`<h2>${item[i].title}</h2>
             <img src='${item[i].images[0].path}.${item[i].images[0].extension}'></img>
-            <p>${item[i].description}</p>`);
-
+            <p>${item[i].description != null ? item[i].description : 'This Comic is so awesome the description is classified!' }</p>`);
     };
 };
 
