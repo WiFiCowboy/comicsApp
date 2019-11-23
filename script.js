@@ -69,8 +69,8 @@ function displayResults(responseJson) {
 function getDates() {
   $("form").submit(function(event) {
     clearDisplayedComics();
-    startDate = $("#startDate").val();
-    endDate = $("#endDate").val();
+    startDate = formatDate($("#startDate").val());
+    endDate = formatDate($("#endDate").val());
     event.preventDefault();
     maxComicLimit();
     getComics();
@@ -80,6 +80,15 @@ function getDates() {
 
 function clearDisplayedComics() {
   $(".js-display").empty();
+}
+
+function formatDate(date) {
+  // YYYY-MM-DD MM-DD-YYYY
+  let month = date.slice(0, 2);
+  let day = date.slice(3, 5);
+  let year = date.slice(6, 10);
+  let newDate = year + "-" + month + "-" + day;
+  return newDate;
 }
 
 function maxComicLimit() {
