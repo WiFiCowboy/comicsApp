@@ -4,47 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>comics app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Search for Marvel Comics</title>
   </head>
   <body>
+    <header>
+      <div class="img-wrapper">
+        <img
+          class="logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/330px-MarvelLogo.svg.png"
+        />
+      </div>
+    </header>
     <main>
-      <h1>comics app</h1>
-      <div class="display js-display"></div>
-      <form action="" class="js-form">
-        <label for="startDate">Start Date</label>
-        <input
-          type="text"
-          name="userDate"
-          id="startDate"
-          class="js-date"
-          placeholder="YYYY-MM-DD"
-        />
-        <!-- for testing remove -->
-        <br />
+      <h1 class="title-text">Find your favorite comics from the past!</h1>
+      <div class="form-wrapper">
+        <form action="" class="js-form">
+          <label for="startDate">Start Date</label>
+          <input
+            type="text"
+            name="userDate"
+            id="startDate"
+            class="js-date"
+            placeholder="YYYY-MM-DD"
+          />
+          <!-- for testing remove -->
+          <br />
 
-        <label for="endDate">End Date</label>
-        <input
-          type="text"
-          name="userDate"
-          id="endDate"
-          class="js-date"
-          placeholder="YYYY-MM-DD"
-        />
-        <!-- for testing remove -->
-        <br />
+          <label for="endDate">End Date</label>
+          <input
+            type="text"
+            name="userDate"
+            id="endDate"
+            class="js-date"
+            placeholder="YYYY-MM-DD"
+          />
+          <!-- for testing remove -->
+          <br />
 
-        <label for="limit">How many comics</label>
-        <input
-          type="number"
-          name="rangeLimit"
-          id="limit"
-          min="1"
-          max="10"
-          value="4"
-        />
-        <input type="submit" value="Submit" class="js-submit" />
-      </form>
-
+          <label for="limit">How many comics</label>
+          <input
+            type="number"
+            name="rangeLimit"
+            id="limit"
+            min="1"
+            max="10"
+            value="4"
+          />
+          <input type="submit" value="Find Comics" class="js-submit" />
+        </form>
+      </div>
+      <div class="display-wrapper">
+        <div class="display js-display"></div>
+      </div>
       <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
