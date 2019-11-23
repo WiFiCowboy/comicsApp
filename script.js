@@ -68,6 +68,8 @@ function getDates() {
     clearDisplayedComics();
     startDate = $("#startDate").val();
     endDate = $("#endDate").val();
+    formatDate(startDate);
+    formatDate(endDate);
     event.preventDefault();
     maxComicLimit();
     getComics();
@@ -77,6 +79,15 @@ function getDates() {
 
 function clearDisplayedComics() {
   $(".js-display").empty();
+}
+
+function formatDate(date) {
+  // YYYY-MM-DD MM-DD-YYYY
+  let month = date.slice(0, 2);
+  let day = date.slice(3, 5);
+  let year = date.slice(6, 10);
+  let newDate = year + "-" + month + "-" + day;
+  console.log(newDate);
 }
 
 function maxComicLimit() {
