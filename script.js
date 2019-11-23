@@ -1,11 +1,11 @@
 let startDate, endDate, comicLimit;
 
-// const apiKey = 'd6cb2c40a70bfd62dd967ea72604c3a7';
 const startURL = "https://gateway.marvel.com/v1/public/comics?dateRange=";
 
 const endUrl =
   "&ts=2019-11-19&apikey=d6cb2c40a70bfd62dd967ea72604c3a7&hash=2365d68ab95ef4c8e36e285198af89d5";
 
+// Concatenate URL to a single function call  
 function buildUrl() {
   const fetchUrl =
     startURL + startDate + "," + endDate + "&limit=" + comicLimit + endUrl;
@@ -13,6 +13,7 @@ function buildUrl() {
   return fetchUrl;
 }
 
+// Calls API 
 function getComics() {
   fetch(buildUrl())
     .then(response => {
@@ -28,6 +29,7 @@ function getComics() {
     .catch(error => comicError());
 }
 
+// Error message for JSON returning empty
 // Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
 function handleErrors() {
   $(".js-display").append(`<div class="Thanos">
@@ -36,6 +38,7 @@ function handleErrors() {
     </div>`);
 }
 
+// Error message for error inside JSON Array 
 // Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
 function comicError() {
   $(".js-display").append(`<div>
@@ -44,6 +47,7 @@ function comicError() {
     </div>`);
 }
 
+// renders results from API request
 function displayResults(responseJson) {
   let item = responseJson.data.results;
   console.log("these are results", item);
@@ -52,13 +56,14 @@ function displayResults(responseJson) {
   }
   for (let i = 0; i < item.length; i++) {
     $(".js-display")
-      .append(`<div class="comic-item" style= 'margin-left:25px; margin-right:25px; margin-top;25px; margin-bottom:25px;'>
+    // end test
+      .append(`<div class="comic-item">
             <img class='comic-cover' src='${item[i].images[0].path}.${
       item[i].images[0].extension
-    } 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px; box-shadow: 1px 2px 4px rgba(0,0,0,.5);'>
-    <h2 style= 'margin-bottom: 25px;'>${item[i].title}</h2>
+    }'>
+    <h2>${item[i].title}</h2>
     </img>
-            <p style= 'font-size: 25px; line-height: 1.5;'>${
+            <p>${
               item[i].description != null
                 ? item[i].description
                 : "This Comic is so awesome the description is classified!"
@@ -66,6 +71,7 @@ function displayResults(responseJson) {
   }
 }
 
+// gets start and end dates from form
 function getDates() {
   $("form").submit(function(event) {
     clearDisplayedComics();
@@ -78,15 +84,18 @@ function getDates() {
   });
 }
 
+// clears display DIV
 function clearDisplayedComics() {
   $(".js-display").empty();
 }
 
+// sets limit for comics to return 
 function maxComicLimit() {
   comicLimit = $("#limit").val();
   console.log(comicLimit);
 }
 
+// runs script on page load 
 function masterControl() {
   getDates();
 }

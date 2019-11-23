@@ -4,20 +4,22 @@
   padding: 0;
 }
 
+
 body {
   color: black;
   font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .title-text {
-  font-size: 55px;
+  font-size: 24px;
   font-family: "Luckiest Guy", cursive;
-  margin-top: 30px;
+  margin-top: 10px;
   text-align: center;
   margin-bottom: 5%;
   font-weight: 100;
   letter-spacing: 2.3px;
-  
 }
 
 
@@ -30,7 +32,7 @@ header {
 
 .js-form {
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
   width: 80%;
   margin: 0 auto;
 }
@@ -50,7 +52,21 @@ header {
   border-color: black;
 }
 
-label,
+label, input {
+  padding: 10px;
+  margin: 5px 0px;
+}
+
+.js-submit {
+  border-radius: 3px 3px 3px 3px; 
+  margin-top: 3%; 
+  margin-bottom: 30%; 
+  font-size: 24px;
+  color: white; 
+  height: 50px; 
+  width: 200px;
+}
+/* label,
 input {
   margin-bottom: 10px;
   display: inline-block;
@@ -66,11 +82,13 @@ label + input {
   margin: 0 30% 0 4%;
 }
 input {
-  font-size: 30px;
+  font-size: 15px;
   margin-bottom: 5px;
-}
+} */
+
 .img-wrapper {
   text-align: center;
+  width: 100%;
 }
 .form-wrapper {
   text-align: left;
@@ -80,8 +98,9 @@ input {
 .background-image {
   background-repeat: no-repeat;
   background-image: url("https://wallpaperaccess.com/full/14358.jpg");
+  background-size: 100%;
   width: 100%;
-  height: 800px;
+  height: 200px;
   display: block;
   position: relative;
 }
@@ -90,25 +109,59 @@ input {
   opacity: 0.5;
 }
 
+/* done edit */
 .js-display {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto auto;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
 }
+/* style cover image for comic */
 .comic-format {
+  width: 100%;
+  height: 100%;
+}
+
+.comic-item {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.comic-item > img {
   width: 300px;
   height: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comic-item > h2 {
+  font-size: 20px;
+  padding: 10px;
+  width: 300px;
+}
+
+.comic-item > p {
+  font-size: 16px;
+  margin: 10px;
+  width: 270px;
+  line-height: 26px;
 }
 
 footer {
-  width: 100%;
+  /* width: 100%; */
   background-color: black;
-  height: 310px;
+  height: 100px;
   margin-top: 59px;
 }
 
-@media only screen and (min-width: 200px) {
-  /* For tablets: */
+@media only screen and (min-width: 320px) {
+
+}
+ /* @media only screen and (min-width: 320px) {
+  body {
+    width: 100%;
+  }
   .js-display {
     display: grid;
     text-align: center;
@@ -117,19 +170,34 @@ footer {
   }
 }
 
-@media only screen and (min-width: 1000px) {
-  /* For tablets: */
+ @media only screen and (min-width: 1000px) {
   .js-display {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto auto;
-  }
+  } 
 
   @media only screen and (min-width: 1400px) {
-    /* For tablets: */
     .js-display {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto auto auto;
-    }
-}
+    }  */
+
+
+
+
+  
+
+
+    /* .append(`<div class="comic-item">
+    <img class='comic-cover' src='${item[i].images[0].path}.${
+item[i].images[0].extension
+} 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px; box-shadow: 1px 2px 4px rgba(0,0,0,.5);'>
+<h2 style='margin-bottom: 25px; font-size: 24px'>${item[i].title}</h2>
+</img>
+    <p style= 'font-size: 16px; line-height: 1.5;'>${
+      item[i].description != null
+        ? item[i].description
+        : "This Comic is so awesome the description is classified!"
+    }</p> </div>`); */
