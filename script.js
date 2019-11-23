@@ -48,15 +48,18 @@ function displayResults(responseJson) {
     handleErrors();
   }
   for (let i = 0; i < item.length; i++) {
-    $(".js-display").append(`<h2>${item[i].title}</h2>
-            <img src='${item[i].images[0].path}.${
+    $(".js-display")
+      .append(`<div class="comic-item" style= 'margin-left:25px; margin-right:25px; margin-top;25px; margin-bottom:25px;'>
+            <img class='comic-cover' src='${item[i].images[0].path}.${
       item[i].images[0].extension
-    }'></img>
-            <p>${
+    } 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px;'>
+    <h2 style= 'margin-bottom: 10px;'>${item[i].title}</h2>
+    </img>
+            <p style= 'font-size: 20px;'>${
               item[i].description != null
                 ? item[i].description
                 : "This Comic is so awesome the description is classified!"
-            }</p>`);
+            }</p> </div>`);
   }
 }
 
