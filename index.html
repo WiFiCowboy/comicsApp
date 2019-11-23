@@ -15,24 +15,25 @@
       </div>
     </header>
     <main>
-      <h1 class="title-text">Find your favorite comics</h1>
-      
-      <form action="" class="js-form">
-        <label for="startDate">Start Date</label>
-        <input type="text" name="userDate" id="startDate" class="js-date" placeholder="YYYY-MM-DD"/>
-        <!-- for testing remove -->
-        <br>
+      <h1 class="title-text">Find your favorite comics from the past!</h1>
+      <div class="form-wrapper">
+        <form action="" class="js-form">
+          <label for="startDate">Start Date</label>
+          <input type="text" name="userDate" id="startDate" class="js-date" placeholder="YYYY-MM-DD"/>
+          <!-- for testing remove -->
+          <br>
 
-        <label for="endDate">End Date</label>
-        <input type="text" name="userDate" id="endDate" class="js-date" placeholder="YYYY-MM-DD"/>
-        <!-- for testing remove -->
-        <br>
+          <label for="endDate">End Date</label>
+          <input type="text" name="userDate" id="endDate" class="js-date" placeholder="YYYY-MM-DD"/>
+          <!-- for testing remove -->
+          <br>
 
-        <label for="limit">How many comics</label>
-        <input type="number" name="rangeLimit" id="limit" min="1" max="10" value="4">
-        <input type="submit" value="Submit" class="js-submit"/>
+          <label for="limit">How many comics</label>
+          <input type="number" name="rangeLimit" id="limit" min="1" max="10" value="4">
+          <input type="submit" value="Find Comics" class="js-submit"/>
 
-      </form>
+        </form>
+      </div>
       <div class= "display-wrapper">
           <div class="display js-display"></div>
       </div>
