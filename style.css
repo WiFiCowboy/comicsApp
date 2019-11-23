@@ -10,12 +10,16 @@ body {
 }
 
 .title-text {
-  font-size: 40px;
+  font-size: 55px;
   font-family: "Luckiest Guy", cursive;
-  margin-top: 5%;
+  margin-top: 30px;
   text-align: center;
   margin-bottom: 5%;
+  font-weight: 100;
+  letter-spacing: 2.3px;
+  
 }
+
 
 header {
   width: 100%;
@@ -32,7 +36,7 @@ header {
 }
 
 .js-submit {
-  border-radius: 2px;
+  border-radius: 3px;
   margin-top: 3%;
   margin-bottom: 30%;
   background-color: red;
@@ -43,6 +47,7 @@ header {
 }
 .js-submit:hover {
   cursor: pointer;
+  border-color: black;
 }
 
 label,
@@ -71,15 +76,17 @@ input {
   text-align: left;
   height: 400px;
 }
+
 .background-image {
   background-repeat: no-repeat;
-  width: 800px;
-  height: 500px;
+  background-image: url("https://wallpaperaccess.com/full/14358.jpg");
+  width: 100%;
+  height: 800px;
   display: block;
   position: relative;
 }
 .background-image::after {
-  background: url("https://wallpaperplay.com/walls/full/9/2/8/330254.jpg");
+  background: url("https://wallpaperaccess.com/full/14358.jpg");
   opacity: 0.5;
 }
 
@@ -91,4 +98,38 @@ input {
 .comic-format {
   width: 300px;
   height: 400px;
+}
+
+footer {
+  width: 100%;
+  background-color: black;
+  height: 310px;
+  margin-top: 59px;
+}
+
+@media only screen and (min-width: 200px) {
+  /* For tablets: */
+  .js-display {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  /* For tablets: */
+  .js-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    /* For tablets: */
+    .js-display {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto auto;
+    }
 }
