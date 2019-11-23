@@ -30,15 +30,18 @@ function getComics() {
 
 // Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
 function handleErrors() {
-  $(".js-display")
-    .append(`<h2>Thanos Snapped your comics out of existence! Try another date range.</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan">`);
+  $(".js-display").append(`<div class="Thanos">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan" style="margin-left: 100px; box-shadow: 1px 2px 4px rgba(0,0,0,.5)"> 
+    <h2 style="margin-top: 25px; margin-bottom:25px; margin-left:50px">Thanos Snapped your comics out of existence! Try another date range.</h2> 
+    </div>`);
 }
 
 // Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
 function comicError() {
-  $(".js-display").append(`<h2>Doctor Doom has taken this comic!</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom">`);
+  $(".js-display").append(`<div>
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom" style="margin-left:100px; box-shadow: 1px 2px 4px rgba(0,0,0,.5)">
+    <h2 style="margin-top: 25px; margin-bottom:25px; margin-left:50px">Doctor Doom has taken this comic!</h2>
+    </div>`);
 }
 
 function displayResults(responseJson) {
@@ -52,10 +55,10 @@ function displayResults(responseJson) {
       .append(`<div class="comic-item" style= 'margin-left:25px; margin-right:25px; margin-top;25px; margin-bottom:25px;'>
             <img class='comic-cover' src='${item[i].images[0].path}.${
       item[i].images[0].extension
-    } 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px;'>
-    <h2 style= 'margin-bottom: 10px;'>${item[i].title}</h2>
+    } 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px; box-shadow: 1px 2px 4px rgba(0,0,0,.5);'>
+    <h2 style= 'margin-bottom: 25px;'>${item[i].title}</h2>
     </img>
-            <p style= 'font-size: 20px;'>${
+            <p style= 'font-size: 25px; line-height: 1.5;'>${
               item[i].description != null
                 ? item[i].description
                 : "This Comic is so awesome the description is classified!"
