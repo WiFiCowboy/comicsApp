@@ -60,14 +60,14 @@ function displayResults(responseJson) {
       .append(`<div class="comic-item">
             <img class='comic-cover' src='${item[i].images[0].path}.${
       item[i].images[0].extension
-    }'>
+    }'></img>
     <h2>${item[i].title}</h2>
-    </img>
             <p>${
               item[i].description != null
                 ? item[i].description
                 : "This Comic is so awesome the description is classified!"
-            }</p> </div>`);
+            }</p>
+     </div>`);
   }
 }
 
