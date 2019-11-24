@@ -32,8 +32,13 @@ header {
 }
 
 .js-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "Luckiest Guy", cursive;
   width: 80%;
   margin: 0 auto;
 }
@@ -53,19 +58,29 @@ header {
   border-color: black;
 }
 
+input {
+  background-color: rgba(192, 188, 188, 0.493);
+  border-radius: 3px 3px 3px 3px; 
+  border-style: none;
+  text-align: center;
+}
+
 label, input {
   padding: 10px;
-  margin: 5px 0px;
+  margin: auto;
+  
+}
+
+#limit{
+  margin-bottom: 20px;
 }
 
 .js-submit {
-  border-radius: 3px 3px 3px 3px; 
-  margin-top: 3%; 
-  margin-bottom: 30%; 
   font-size: 24px;
-  color: white; 
-  height: 50px; 
-  width: 200px;
+  color: white;
+  margin: auto;
+  padding: 10px;
+  
 }
 
 .img-wrapper {
@@ -74,7 +89,7 @@ label, input {
 }
 .form-wrapper {
   text-align: center;
-  height: 300px;
+  height: 320px;
   padding: 10px 20px;
 }
 
@@ -83,7 +98,7 @@ label, input {
   background-image: url("https://wallpaperaccess.com/full/14358.jpg");
   background-size: 100%;
   width: 100%;
-  height: 200px;
+  height: 180px;
   display: block;
   position: relative;
 }
@@ -133,8 +148,8 @@ label, input {
 
 footer {
   background-color: black;
-  height: 200px;
-  margin-top: 20px;
+  height: 100px;
+  margin-top: 40px;
 }
 
 @media only screen and (min-width: 320px) {
