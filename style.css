@@ -20,6 +20,7 @@ body {
   margin-bottom: 5%;
   font-weight: 100;
   letter-spacing: 2.3px;
+  padding: 10px 20px;
 }
 
 
@@ -72,8 +73,9 @@ label, input {
   width: 100%;
 }
 .form-wrapper {
-  text-align: left;
-  height: 400px;
+  text-align: center;
+  height: 300px;
+  padding: 10px 20px;
 }
 
 .background-image {
@@ -130,10 +132,9 @@ label, input {
 }
 
 footer {
-  /* width: 100%; */
   background-color: black;
-  height: 100px;
-  margin-top: 59px;
+  height: 200px;
+  margin-top: 20px;
 }
 
 @media only screen and (min-width: 320px) {
