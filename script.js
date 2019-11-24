@@ -32,18 +32,18 @@ function getComics() {
 // Error message for JSON returning empty
 // Thanos on the variant cover of Infinity #4 (December 2013). Art by Jerome Opeña and Dustin Weaver.
 function handleErrors() {
-  $(".js-display").append(`<div class="Thanos">
-    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan" style="margin-left: 100px; box-shadow: 1px 2px 4px rgba(0,0,0,.5)"> 
-    <h2 style="margin-top: 25px; margin-bottom:25px; margin-left:50px">Thanos Snapped your comics out of existence! Try another date range.</h2> 
+  $(".js-display").append(`<div class="comic-item">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Thanos_Infinity_4.png" alt="Thanos the mad titan"> 
+    <h2>Thanos Snapped your comics out of existence! Try another date range.</h2> 
     </div>`);
 }
 
 // Error message for error inside JSON Array 
 // Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
 function comicError() {
-  $(".js-display").append(`<div>
-    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom" style="margin-left:100px; box-shadow: 1px 2px 4px rgba(0,0,0,.5)">
-    <h2 style="margin-top: 25px; margin-bottom:25px; margin-left:50px">Doctor Doom has taken this comic!</h2>
+  $(".js-display").append(`<div class="comic-item">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom">
+    <h2>Doctor Doom has taken this comic!</h2>
     </div>`);
 }
 
