@@ -66,25 +66,6 @@ label, input {
   height: 50px; 
   width: 200px;
 }
-/* label,
-input {
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-label {
-  width: 30%;
-  text-align: right;
-}
-
-label + input {
-  width: 30%;
-  margin: 0 30% 0 4%;
-}
-input {
-  font-size: 15px;
-  margin-bottom: 5px;
-} */
 
 .img-wrapper {
   text-align: center;
@@ -189,15 +170,3 @@ footer {
 
   
 
-
-    /* .append(`<div class="comic-item">
-    <img class='comic-cover' src='${item[i].images[0].path}.${
-item[i].images[0].extension
-} 'style = 'width: 300px; height: 400px; margin-left: 25px; margin-right: 100px; margin-bottom: 25px; box-shadow: 1px 2px 4px rgba(0,0,0,.5);'>
-<h2 style='margin-bottom: 25px; font-size: 24px'>${item[i].title}</h2>
-</img>
-    <p style= 'font-size: 16px; line-height: 1.5;'>${
-      item[i].description != null
-        ? item[i].description
-        : "This Comic is so awesome the description is classified!"
-    }</p> </div>`); */
