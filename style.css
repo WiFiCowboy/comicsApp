@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-
 body {
   color: black;
   font-family: "Roboto", sans-serif;
@@ -22,7 +21,6 @@ body {
   letter-spacing: 2.3px;
   padding: 10px 20px;
 }
-
 
 header {
   width: 100%;
@@ -60,18 +58,18 @@ header {
 
 input {
   background-color: rgba(192, 188, 188, 0.493);
-  border-radius: 3px 3px 3px 3px; 
+  border-radius: 3px 3px 3px 3px;
   border-style: none;
   text-align: center;
 }
 
-label, input {
+label,
+input {
   padding: 10px;
   margin: auto;
-  
 }
 
-#limit{
+#limit {
   margin-bottom: 20px;
 }
 
@@ -80,7 +78,6 @@ label, input {
   color: white;
   margin: auto;
   padding: 10px;
-  
 }
 
 .img-wrapper {
@@ -129,13 +126,13 @@ label, input {
   background-image: url(https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg);
 }
 
-.comic-item, .Thanos {
+.comic-item,
+.Thanos {
   align-self: center;
   margin: 20px 20px;
   border: 1px solid rgba(180, 180, 180, 0.63);
-  border-radius: 3px 3px 3px 3px; 
+  border-radius: 3px 3px 3px 3px;
   width: 100%;
-  /* height: 750px; */
   padding: 10px;
   background-color: rgba(211, 211, 211, 0.801);
   box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.322);
@@ -163,10 +160,24 @@ label, input {
   margin: 10px;
   width: 270px;
   line-height: 26px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   height: 70px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
 }
 
 footer {
@@ -177,7 +188,6 @@ footer {
 
 /* Tablet size */
 @media only screen and (min-width: 765px) {
-
   .background-image {
     height: 300px;
   }
@@ -218,7 +228,6 @@ footer {
     margin: auto;
     padding: 5px;
   }
-
 }
 
 @media only screen and (min-width: 1000px) {
@@ -238,23 +247,12 @@ footer {
     height: 400px;
   }
 
-  .title-text, .js-form {
+  .title-text,
+  .js-form {
     font-size: 2em;
   }
 
   input {
     font-size: 20px;
   }
-
 }
-
-
-
-
-
-/*   
-style description */
-/* overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-height: 70px; */

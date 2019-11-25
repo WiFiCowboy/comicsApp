@@ -69,7 +69,7 @@ function displayResults(responseJson) {
     ${image}
     <h2>${item[i].title}</h2>
     <h2>${date}</h2>
-            <p>${
+            <p class="scroll">${
               item[i].description != null
                 ? item[i].description
                 : "This Comic is so awesome the description is classified!"
