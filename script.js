@@ -9,7 +9,6 @@ const endUrl =
 function buildUrl() {
   const fetchUrl =
     startURL + startDate + "," + endDate + "&limit=" + comicLimit + endUrl;
-  console.log(fetchUrl);
   return fetchUrl;
 }
 
@@ -17,7 +16,6 @@ function buildUrl() {
 function getComics() {
   fetch(buildUrl())
     .then(response => {
-      console.log(response);
       if (response.ok) {
         return response.json();
       } else {
@@ -26,7 +24,7 @@ function getComics() {
       }
     })
     .then(responseJson => displayResults(responseJson))
-    .catch(error => comicError());
+    .catch(error => comicError(error));
 }
 
 // Error message for JSON returning empty
@@ -40,7 +38,7 @@ function handleErrors() {
 
 // Error message for error inside JSON Array 
 // Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
-function comicError() {
+function comicError(error) {
   $(".js-display").append(`<div class="comic-item">
     <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Doctor_Doom_%282018%29.jpg" alt="Doctor Doom">
     <h2>Doctor Doom has taken this comic!</h2>
@@ -50,18 +48,27 @@ function comicError() {
 // renders results from API request
 function displayResults(responseJson) {
   let item = responseJson.data.results;
-  console.log("these are results", item);
   if (item.length === 0) {
     handleErrors();
   }
   for (let i = 0; i < item.length; i++) {
+      let image = `<div class="noimage"></div>`;
+      let date = '';
+      if(item[i].dates[0]){
+          date = new Date(item[i].dates[0].date)
+          date = date.getMonth() + 1 + '/' + (date.getDate() + 1)  + '/' + date.getFullYear();
+      }
+      if(item[i].images[0]){
+          image = `<img class='comic-cover' src='${item[i].images[0].path}.${
+            item[i].images[0].extension
+          }'></img>`
+      }
     $(".js-display")
     // end test
       .append(`<div class="comic-item">
-            <img class='comic-cover' src='${item[i].images[0].path}.${
-      item[i].images[0].extension
-    }'></img>
+    ${image}
     <h2>${item[i].title}</h2>
+    <h2>${date}</h2>
             <p>${
               item[i].description != null
                 ? item[i].description
@@ -80,7 +87,6 @@ function getDates() {
     event.preventDefault();
     maxComicLimit();
     getComics();
-    console.log(startDate, endDate);
   });
 }
 
@@ -102,7 +108,6 @@ function formatDate(date) {
 
 function maxComicLimit() {
   comicLimit = $("#limit").val();
-  console.log(comicLimit);
 }
 
 // runs script on page load 
