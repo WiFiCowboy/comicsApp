@@ -6,15 +6,15 @@ The purpose of this application is to allow users to search for past and present
 #### Technology
 * Front-end
   * HTML
-..* CSS 
-..* JavaScript
-..* jQuery 
+  * CSS 
+  * JavaScript
+  * jQuery 
 * API
-..* The Marvel Comics API
+  * The Marvel Comics API
 * Development Environment
-..* Git
-..* GitHub 
-..* Slack
-..* Visual Studio Code
-..* Trello
+  * Git
+  * GitHub 
+  * Slack
+  * Visual Studio Code
+  * Trello
 
