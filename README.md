@@ -2,7 +2,7 @@
 ## Live App link
 * https://wificowboy.github.io/comicsApp/
 ## App Images
-![main screen](assets/main.png "main page")
+![main screen](assets/main.png "main page")![comics screen](assets/comics.png "comics page")
 
 
 ### Summary
