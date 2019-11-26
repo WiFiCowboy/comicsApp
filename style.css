@@ -166,6 +166,10 @@ input {
   padding-right: 20px;
 }
 
+.thanos {
+  margin: auto;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   background: transparent;
