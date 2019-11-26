@@ -48,6 +48,8 @@ function comicError(error) {
 // renders results from API request
 function displayResults(responseJson) {
   let item = responseJson.data.results;
+  console.log(item);
+  
   if (item.length === 0) {
     handleErrors();
   }
@@ -55,8 +57,7 @@ function displayResults(responseJson) {
       let image = `<div class="noimage"></div>`;
       let date = '';
       if(item[i].dates[0]){
-          date = new Date(item[i].dates[0].date)
-          date = date.getMonth() + 1 + '/' + (date.getDate() + 1)  + '/' + date.getFullYear();
+          date = item[i].dates[0].date.slice(0, 10);
       }
       if(item[i].images[0]){
           image = `<img class='comic-cover' src='${item[i].images[0].path}.${
@@ -68,7 +69,7 @@ function displayResults(responseJson) {
       .append(`<div class="comic-item">
     ${image}
     <h2>${item[i].title}</h2>
-    <h2>${date}</h2>
+    <h2>${formatComicDate(date)}</h2>
             <p class="scroll">${
               item[i].description != null
                 ? item[i].description
@@ -95,7 +96,15 @@ function clearDisplayedComics() {
   $(".js-display").empty();
 }
 
+// formats comic on sale date
+function formatComicDate(str) {
+  let year = str.slice(0, 4);
+  let month = str.slice(5, 7);
+  let day = str.slice(8, 10);
+  return `${month}/${day}/${year}`;
+}
 
+// format input dates
 function formatDate(date) {
   // YYYY-MM-DD MM-DD-YYYY
   let month = date.slice(0, 2);
@@ -105,7 +114,7 @@ function formatDate(date) {
   return newDate;
 }
 
-
+// set max return limit
 function maxComicLimit() {
   comicLimit = $("#limit").val();
 }
