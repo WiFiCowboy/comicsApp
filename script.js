@@ -5,21 +5,20 @@ const startURL = "https://gateway.marvel.com/v1/public/comics?dateRange=";
 const endUrl =
   "&ts=2019-11-19&apikey=d6cb2c40a70bfd62dd967ea72604c3a7&hash=2365d68ab95ef4c8e36e285198af89d5";
 
-// Concatenate URL to a single function call  
+// Concatenate URL to a single function call
 function buildUrl() {
   const fetchUrl =
     startURL + startDate + "," + endDate + "&limit=" + comicLimit + endUrl;
   return fetchUrl;
 }
 
-// Calls API 
+// Calls API
 function getComics() {
   fetch(buildUrl())
     .then(response => {
       if (response.ok) {
         return response.json();
       } else {
-        // skips next .then and goes to .catch
         throw new Error();
       }
     })
@@ -36,7 +35,7 @@ function handleErrors() {
     </div>`);
 }
 
-// Error message for error inside JSON Array 
+// Error message for error inside JSON Array
 // Artwork for the cover of The Amazing Spider-Man vol. 5, 11 (November 2018 Marvel Comics)  Art by Gabriele Dell'Otto
 function comicError(error) {
   $(".js-display").append(`<div class="comic-item">
@@ -48,25 +47,19 @@ function comicError(error) {
 // renders results from API request
 function displayResults(responseJson) {
   let item = responseJson.data.results;
-  console.log(item);
-  
   if (item.length === 0) {
     handleErrors();
   }
   for (let i = 0; i < item.length; i++) {
-      let image = `<div class="noimage"></div>`;
-      let date = '';
-      if(item[i].dates[0]){
-          date = item[i].dates[0].date.slice(0, 10);
-      }
-      if(item[i].images[0]){
-          image = `<img class='comic-cover' src='${item[i].images[0].path}.${
-            item[i].images[0].extension
-          }'></img>`
-      }
-    $(".js-display")
-    // end test
-      .append(`<div class="comic-item">
+    let image = `<div class="noimage"></div>`;
+    let date = "";
+    if (item[i].dates[0]) {
+      date = item[i].dates[0].date.slice(0, 10);
+    }
+    if (item[i].images[0]) {
+      image = `<img class='comic-cover' src='${item[i].images[0].path}.${item[i].images[0].extension}'></img>`;
+    }
+    $(".js-display").append(`<div class="comic-item">
     ${image}
     <h2>${item[i].title}</h2>
     <h2>${formatComicDate(date)}</h2>
@@ -106,7 +99,6 @@ function formatComicDate(str) {
 
 // format input dates
 function formatDate(date) {
-  // YYYY-MM-DD MM-DD-YYYY
   let month = date.slice(0, 2);
   let day = date.slice(3, 5);
   let year = date.slice(6, 10);
@@ -119,7 +111,7 @@ function maxComicLimit() {
   comicLimit = $("#limit").val();
 }
 
-// runs script on page load 
+// runs script on page load
 function masterControl() {
   getDates();
 }

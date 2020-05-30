@@ -206,7 +206,6 @@ footer {
 
   .js-display {
     width: auto;
-    display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
